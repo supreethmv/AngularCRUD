@@ -1,5 +1,5 @@
 <div *ngFor="let employee of employees">
-    <div (click)="onClick(employee.id)" class="pointerCursor">
+    <div>
         <app-display-employee [employee]="employee">
         </app-display-employee>
     </div>

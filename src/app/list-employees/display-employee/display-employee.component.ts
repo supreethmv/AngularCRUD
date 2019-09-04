@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Employee } from 'src/app/models/employee.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,9 +12,11 @@ export class DisplayEmployeeComponent implements OnInit {
 
   @Input() employee:Employee;
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit() {
   }
+
+
 
 }

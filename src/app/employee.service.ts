@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Employee } from './models/employee.model';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/of';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  listEmployees:Employee[]=[
+  listEmployess = new BehaviorSubject<Employee[]>([
     {
       id: 1,
       name: 'Supreeth',
@@ -41,19 +40,18 @@ export class EmployeeService {
       isActive: true,
       photoPath: 'assets/images/emp3.png'
     },
-  ];
+  ]);
+
+  cast=this.listEmployess.asObservable();
 
   constructor() { }
 
-  getEmployees(): Observable<Employee[]> {
-    return Observable.of(this.listEmployees);
-  }
 
   getEmployee(id:number): Employee{
-    return this.listEmployees.find(e=>e.id===id);
+    return this.listEmployess.value.find(e=>e.id===id);
   }
 
   save(employee:Employee){
-    this.listEmployees.push(employee);
+    this.listEmployess.value.push(employee);
   }
 }
