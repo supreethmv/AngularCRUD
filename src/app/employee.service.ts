@@ -42,16 +42,26 @@ export class EmployeeService {
     },
   ]);
 
-  cast=this.listEmployess.asObservable();
+  cast = this.listEmployess.asObservable();
 
   constructor() { }
 
 
-  getEmployee(id:number): Employee{
-    return this.listEmployess.value.find(e=>e.id===id);
+  getEmployee(id: number): Employee {
+    return this.listEmployess.value.find(e => e.id === id);
   }
 
-  save(employee:Employee){
-    this.listEmployess.value.push(employee);
+  save(employee: Employee) {
+    if (employee.id === null) {
+      const maxid = this.listEmployess.value.reduce(function(e1,e2){
+        return (e1.id > e2.id)? e1 : e2;
+      }).id;
+      employee.id=maxid + 1;
+      this.listEmployess.value.push(employee);
+    }
+    else{
+      const foundIndex= this.listEmployess.value.findIndex(e=>e.id===employee.id);
+      this.listEmployess[foundIndex]=employee;
+    }
   }
 }

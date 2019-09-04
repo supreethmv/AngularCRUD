@@ -15,7 +15,7 @@
   
         <div class="form-group" [class.has-error]="email.invalid">
             <label for="email" class="control-label">Email</label>
-            <input id="email" [required]="contactPreference.value=='email'" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" type="text" class="form-control" name="email" [(ngModel)]="employee.email" #email="ngModel">
+            <input id="email" [required]="contactPreference.value=='Email'" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" type="text" class="form-control" name="email" [(ngModel)]="employee.email" #email="ngModel">
             <span class="help-block" *ngIf="email.errors?.required">
                 Email is required
             </span>
@@ -27,7 +27,7 @@
 
         <div class="form-group" [class.has-error]="phoneNumber.invalid">
             <label for="phoneNumber" class="control-label">Phone Number</label>
-            <input id="phoneNumber" [required]="contactPreference.value=='phone'"#phoneNumber="ngModel" class="form-control" type="text" name="phoneNumber" [(ngModel)]="employee.phoneNumber">
+            <input id="phoneNumber" [required]="contactPreference.value=='Phone'"#phoneNumber="ngModel" class="form-control" type="text" name="phoneNumber" [(ngModel)]="employee.phoneNumber">
                 <span class="help-block" *ngIf="phoneNumber.errors?.required">Phone Number is required</span>
         </div>
 
@@ -37,11 +37,11 @@
                 <div class="form-control">
                   <label class="radio-inline">
                     <input type="radio" required #contactPreference="ngModel" name="contactPreference"
-                            value="email" [(ngModel)]="employee.contactPreference"> Email
+                            value="Email" [(ngModel)]="employee.contactPreference"> Email
                   </label>
                   <label class="radio-inline">
                     <input type="radio" required #contactPreference="ngModel" name="contactPreference"
-                            value="phone" [(ngModel)]="employee.contactPreference"> Phone
+                            value="Phone" [(ngModel)]="employee.contactPreference"> Phone
                   </label>
                 </div>
                 <span class="help-block" *ngIf="contactPreference.errors?.required && contactPreference.touched">
@@ -53,11 +53,11 @@
           <label class="control-label">Gender</label>
           <div class="form-control">
             <label class="radio-inline">
-              <input type="radio" name="gender" value="male" [(ngModel)]="employee.gender" required #gender="ngModel">
+              <input type="radio" name="gender" value="Male" [(ngModel)]="employee.gender" required #gender="ngModel">
               Male
             </label>
             <label class="radio-inline">
-              <input type="radio" name="gender" value="female" [(ngModel)]="employee.gender" required #gender="ngModel">
+              <input type="radio" name="gender" value="Female" [(ngModel)]="employee.gender" required #gender="ngModel">
               Female
             </label>
           </div>
